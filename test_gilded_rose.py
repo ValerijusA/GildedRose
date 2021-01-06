@@ -75,6 +75,14 @@ def test_aged_brie_and_backstage_quality_increases_when_sell_in_decreases():  # 
     assert items[3].sell_in == 1
 
 
+def test_cojured_quality_decreases_twice_faster():
+    items = [Item("Conjured", 10, 10)]
+    gilded_rose = GildedRose(items)
+    gilded_rose.update_quality()
+    assert items[0].quality == 8
+    assert items[0].sell_in == 9
+
+
 # def test_aged_brie_value_increases_by_one_everyday():  # line 35-36
 #     items = [Item("Aged Brie", 10, 9)]
 #     gilded_rose = GildedRose(items)
