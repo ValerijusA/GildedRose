@@ -83,29 +83,15 @@ def test_conjured_quality_decreases_twice_faster():
     assert items[0].sell_in == 9
 
 
-# def test_aged_brie_value_increases_by_one_everyday():  # line 35-36
-#     items = [Item("Aged Brie", 10, 9)]
-#     gilded_rose = GildedRose(items)
-#     gilded_rose.update_quality()
-#     assert items[0].quality == 10
-#
-#
-# def test_backstage_quality_zeroed_when_sell_in_drops_below_zero():  # line 33
-#     items = [Item("Backstage passes to a TAFKAL80ETC concert", 0, 0)]
-#     gilded_rose = GildedRose(items)
-#     gilded_rose.update_quality()
-#     assert items[0].quality == 0
-#
-#
-# def test_items_quality_decreases_twice_faster_when_sell_in_below_zero():  # line 30-31
-#     items = [Item("foo", 0, 10)]
-#     gilded_rose = GildedRose(items)
-#     gilded_rose.update_quality()
-#     assert items[0].quality == 8
+def test_item_quality_drops_twice_faster_when_sell_in_below_zero():
+    items = [Item("foo", 0, 40)]
+    gilded_rose = GildedRose(items)
+    gilded_rose.update_quality()
+    assert items[0].quality == 38
 
 
-# def test_backstage_quality_increases_when_it_is_below_50_sell_in_below_11():  # lines 17-18-19-20
-
-
-# def test_backstage_quality_increases_when_it_is_below_50_sell_in_below_6():  # lines 21-22-23
-
+def test_backstage_quality_zeroed_when_sell_in_below_zero():
+    items = [Item("Backstage passes to a TAFKAL80ETC concert", 0, 40)]
+    gilded_rose = GildedRose(items)
+    gilded_rose.update_quality()
+    assert items[0].quality == 0
